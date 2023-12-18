@@ -48,19 +48,21 @@ Run the below in cloud shells against the project you selected-
 ```
 PROJECT_ID=$(gcloud config get-value project)
 COMPOSER_SA=mycroft-composer-sa
-COMPOSER_ENV=mycroft_composer_env
-REGION=<region_where_resources_will_be_created>
-PHS_NAME=mycroft_phs
-BQ_DATASET=mycroft_anomaly_detection
-METASTORE_DB=mycroft_metastore_db
+COMPOSER_ENV=mycroft-composer-env
+PHS_NAME=mycroft-phs
+BQ_DATASET=mycroft-anomaly-detection
+METASTORE_DB=mycroft-metastore-db
 METASTORE_NAME=mycroftmetastore
-CLOUD_COMPOSER2_IMG_VERSION=composer-2.0.11-airflow-2.2.3
+CLOUD_COMPOSER2_IMG_VERSION=composer-2.5.3-airflow-2.6.3
 
-VPC=<your_vpc_name>
-SUBNET=<your_subnet_name>
-OUTPUT_FILE_BUCKET=<your_output_file_bucket_name>
-UMSA_NAME=<your_umsa_name>
-CODE_AND_DATA_BUCKET=<your_code_and_data_bucket_name>
+PROJECT_ID=$(gcloud config get-value project)
+PROJECT_NBR=$(gcloud projects list --filter="$(gcloud config get-value project)" --format="value(PROJECT_NUMBER)")
+VPC=data-vpc
+REGION=us-central1
+SUBNET=uscentral1
+SUBNET_CIDR="10.128.0.0/20"
+FIREWALL=data-firewall
+UMSA=umsa-data-demo
 
 ```
 
