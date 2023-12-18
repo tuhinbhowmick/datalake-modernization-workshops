@@ -71,12 +71,12 @@ Run the below in cloud shell against the project you selected-
 ```
 PROJECT_ID=$(gcloud config get-value project)
 PROJECT_NBR=$(gcloud projects list --filter="$(gcloud config get-value project)" --format="value(PROJECT_NUMBER)")
-VPC=<your_vpc_name>
-REGION=<region_where_resources_will_be_created>
-SUBNET=<your_subnet_name>
-SUBNET_CIDR=<your_subnet_cidr> #Example: "10.0.0.0/16"
-FIREWALL=<your_firewall_name>
-UMSA=<your_umsa_name>
+VPC=data-vpc
+REGION=us-central1
+SUBNET=uscentral1
+SUBNET_CIDR="10.128.0.0/20"
+FIREWALL=data-firewall
+UMSA=umsa-data-demo
 ```
 
 ## 2. Update Organization Policies
@@ -173,70 +173,37 @@ gcloud iam service-accounts create $UMSA \
 
 ## 6. Grant IAM Permissions for UMSA
 
-#### 6.1.a. Basic role for UMSA  
-
-```
 gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member serviceAccount:$UMSA@$PROJECT_ID.iam.gserviceaccount.com --role roles/viewer
 
-```
 
-#### 6.1.b. Storage Admin role for UMSA
-
-```
 gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member serviceAccount:$UMSA@$PROJECT_ID.iam.gserviceaccount.com --role roles/storage.admin
 
-```
 
-#### 6.1.c. Dataproc Editor role for UMSA
-
-```
 gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member serviceAccount:$UMSA@$PROJECT_ID.iam.gserviceaccount.com --role roles/dataproc.editor
 
-```
 
-#### 6.1.d. Dataproc Worker role for UMSA
-
-```
 gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member serviceAccount:$UMSA@$PROJECT_ID.iam.gserviceaccount.com --role roles/dataproc.worker
 
-```
 
-#### 6.1.e. BigQuery Data Editor role for UMSA
-
-```
 gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member serviceAccount:$UMSA@$PROJECT_ID.iam.gserviceaccount.com --role roles/bigquery.dataEditor
 
-```
 
-#### 6.1.f. BigQuery User role for UMSA
-
-```
 gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member serviceAccount:$UMSA@$PROJECT_ID.iam.gserviceaccount.com --role roles/bigquery.user
 
-```
 
-#### 6.1.g. BigQuery Admin role for UMSA
-
-```
 gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member serviceAccount:$UMSA@$PROJECT_ID.iam.gserviceaccount.com --role roles/notebooks.admin
 
-```
 
-## 7. Grant IAM Permissions for Compute Engine Service Account
-
-#### 7.1.a. Basic role for Compute Engine Service Account
-
-```
 gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member serviceAccount:$PROJECT_NBR-compute@developer.gserviceaccount.com --role roles/editor
-```
+
 
 ## 8. Roles required for the Hackfest Attendees
 
