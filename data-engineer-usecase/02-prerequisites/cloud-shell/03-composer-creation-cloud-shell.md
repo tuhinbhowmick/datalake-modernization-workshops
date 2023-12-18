@@ -47,7 +47,7 @@ Run the below in cloud shells against the project you selected-
 
 ```
 PROJECT_ID=$(gcloud config get-value project)
-COMPOSER_SA=mycroft.composer.sa
+COMPOSER_SA=mycroft-composer-sa
 COMPOSER_ENV=mycroft_composer_env
 REGION=<region_where_resources_will_be_created>
 PHS_NAME=mycroft_phs
