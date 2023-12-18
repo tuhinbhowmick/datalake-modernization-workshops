@@ -44,8 +44,8 @@ Run the below in cloud shells coped to the project you selected-
 ```
 PROJECT_ID=$(gcloud config get-value project)
 REGION=<region_where_resources_will_be_created>
-CODE_AND_DATA_BUCKET=<your_code_and_data_gcp_bucket_name>
-OUTPUT_BUCKET=<your_map_reduce_output_bucket_name>
+CODE_AND_DATA_BUCKET=mycroft_code_data
+OUTPUT_BUCKET=mycroft_output
 
 ```
 
