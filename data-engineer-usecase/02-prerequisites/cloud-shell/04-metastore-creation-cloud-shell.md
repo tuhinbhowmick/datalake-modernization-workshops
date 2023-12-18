@@ -44,12 +44,27 @@ We will use these throughout the lab. <br>
 Run the below in cloud shells against the project you selected-
 
 ```
-METASTORE_NAME=<your_dataproc-metastore_name>
-REGION=<region_where_resources_will_be_created>
-VPC=<your_vpc_name>
 PORT=9083 # Change the port number as per the Requirement.
 TIER=Developer # Change the tier as per the Requirement.
 METASTORE_VERSION=3.1.2 # Change the metastore version as per the Requirement.
+
+
+PROJECT_ID=$(gcloud config get-value project)
+COMPOSER_SA=mycroft-composer-sa
+COMPOSER_ENV=mycroft-composer-env
+PHS_NAME=mycroft-phs
+BQ_DATASET=mycroft-anomaly-detection
+METASTORE_DB=mycroft-metastore-db
+METASTORE_NAME=mycroftmetastore
+CLOUD_COMPOSER2_IMG_VERSION=composer-2.5.3-airflow-2.6.3
+
+PROJECT_NBR=$(gcloud projects list --filter="$(gcloud config get-value project)" --format="value(PROJECT_NUMBER)")
+VPC=data-vpc
+REGION=us-central1
+SUBNET=uscentral1
+SUBNET_CIDR="10.128.0.0/20"
+FIREWALL=data-firewall
+UMSA=umsa-data-demo
 ```
 
 ## 2. Create a metastore 
