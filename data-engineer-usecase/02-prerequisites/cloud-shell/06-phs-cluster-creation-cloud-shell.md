@@ -46,9 +46,18 @@ Run the below in cloud shell against the project you selected-
 ```
 PROJECT_ID=$(gcloud config get-value project)
 REGION=<region_where_resources_will_be_created>
-BUCKET_PHS=<your_phs_gcp_bucket_name>
-PHS_CLUSTER_NAME=<your_dataproc_phs_cluster_name>
-SUBNET=<your_subnet_name>
+BUCKET_PHS=mycroftphs
+PHS_CLUSTER_NAME=mycroftphs
+
+
+PROJECT_ID=$(gcloud config get-value project)
+PROJECT_NBR=$(gcloud projects list --filter="$(gcloud config get-value project)" --format="value(PROJECT_NUMBER)")
+VPC=data-vpc
+REGION=us-central1
+SUBNET=uscentral1
+SUBNET_CIDR="10.128.0.0/20"
+FIREWALL=data-firewall
+UMSA=umsa-data-demo
 ```
 
 ## 2. Create a bucket
