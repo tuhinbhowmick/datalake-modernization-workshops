@@ -53,6 +53,13 @@ PROJECT_ID=$(gcloud config get-value project)
 REGION=<region_where_resources_will_be_created>
 SUBNET=<your_subnet_name>
 METASTORE_NAME=<your_dataproc_metastore_name>
+
+
+VPC=data-vpc
+REGION=us-east1
+SUBNET=us-east1
+SUBNET="10.142.0.0/20"
+FIREWALL=data-firewall
 ```
 
 ## 2. Create a bucket
