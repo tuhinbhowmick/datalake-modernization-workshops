@@ -44,12 +44,14 @@ We will use these throughout the lab. <br>
 Run the below in cloud shell against the project you selected-
 
 ```
+DP_CLUSTER_STAGING_BUCKET=mycroft_dataproc_cluster_staging_gcp_bucket
+DP_GCE_CLUSTER_NAME=mycroft-dataproc-cluster
+ZONE=us-central1-c
+
+
 PROJECT_ID=$(gcloud config get-value project)
 REGION=<region_where_resources_will_be_created>
-ZONE=<zone_where_resources_will_be_created>
 SUBNET=<your_subnet_name>
-DP_CLUSTER_STAGING_BUCKET=<your_dataproc_cluster_staging_gcp_bucket_name>
-DP_GCE_CLUSTER_NAME=<your_dataproc_cluster_name> #<your_name>-dp-gce-cluster
 METASTORE_NAME=<your_dataproc_metastore_name>
 ```
 
