@@ -44,7 +44,7 @@ We will use these throughout the lab. <br>
 Run the below in cloud shell against the project you selected-
 
 ```
-DP_CLUSTER_STAGING_BUCKET=mycroft_dataproc_cluster_staging_gcp_bucket
+DP_CLUSTER_STAGING_BUCKET=mycroftdataprocstaging
 DP_GCE_CLUSTER_NAME=mycroft-dataproc-cluster
 
 
@@ -75,7 +75,7 @@ gcloud compute networks subnets create $SUBNET \
 To create a bucket which will be used as a staging bucket to store cluster job dependencies, job driver output, and cluster config files, run the following command in cloud shell:<br>
 
 ```
-gsutil mb -p $PROJECT_ID -c STANDARD -l $REGION -b on gs://$DP_CLUSTER_STAGING_BUCKET
+gsutil mb -p $PROJECT_ID -c STANDARD -b on gs://$DP_CLUSTER_STAGING_BUCKET
 ```
 
 ## 3. Create a Dataproc Cluster on GCE
