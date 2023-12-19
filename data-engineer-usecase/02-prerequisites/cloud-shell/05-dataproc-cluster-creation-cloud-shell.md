@@ -46,7 +46,7 @@ Run the below in cloud shell against the project you selected-
 ```
 DP_CLUSTER_STAGING_BUCKET=mycroft_dataproc_cluster_staging_gcp_bucket
 DP_GCE_CLUSTER_NAME=mycroft-dataproc-cluster
-ZONE=us-central1-c
+
 
 
 PROJECT_ID=$(gcloud config get-value project)
@@ -57,9 +57,17 @@ METASTORE_NAME=<your_dataproc_metastore_name>
 
 VPC=data-vpc
 REGION=us-east1
+REGIONMETASTORE=us-central1
 SUBNET=us-east1
-SUBNET="10.142.0.0/20"
+SUBNET_CIDR="10.142.0.0/20"
+ZONE=us-east1-a
 FIREWALL=data-firewall
+
+gcloud compute networks subnets create $SUBNET \
+     --network=$VPC \
+     --range=$SUBNET_CIDR \
+     --region=$REGION \
+     --enable-private-ip-google-access
 ```
 
 ## 2. Create a bucket
@@ -89,5 +97,5 @@ gcloud dataproc clusters create $DP_GCE_CLUSTER_NAME \
     --image-version 2.0-debian10 \
     --optional-components JUPYTER \
     --project $PROJECT_ID \
-    --dataproc-metastore projects/$PROJECT_ID/locations/$REGION/services/$METASTORE_NAME
+    --dataproc-metastore projects/$PROJECT_ID/locations/$REGIONMETASTORE/services/$METASTORE_NAME
 ```
