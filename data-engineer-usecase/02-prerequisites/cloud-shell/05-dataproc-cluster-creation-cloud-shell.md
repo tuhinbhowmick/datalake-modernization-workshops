@@ -60,7 +60,7 @@ REGION=us-east1
 REGIONMETASTORE=us-central1
 SUBNET=us-east1
 SUBNET_CIDR="10.142.0.0/20"
-ZONE=us-east1-a
+ZONE=us-east1-b
 FIREWALL=data-firewall
 
 gcloud compute networks subnets create $SUBNET \
