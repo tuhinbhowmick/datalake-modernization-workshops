@@ -37,7 +37,7 @@ PROJECT_NBR=`gcloud projects describe $PROJECT_ID | grep projectNumber | cut -d'
 PROJECT_NAME=`gcloud projects describe ${PROJECT_ID} | grep name | cut -d':' -f2 | xargs`
 GCP_ACCOUNT_NAME=`gcloud auth list --filter=status:ACTIVE --format="value(account)"`
 GCP_MULTI_REGION="US"
-LOCATION=<Enter your GCP region here>
+LOCATION=us-central1
 
 
 echo "PROJECT_ID=$PROJECT_ID"
