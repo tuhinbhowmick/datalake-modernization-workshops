@@ -82,12 +82,13 @@ PROJECT_ID=`gcloud config list --format "value(core.project)" 2>/dev/null`
 PROJECT_NBR=`gcloud projects describe $PROJECT_ID | grep projectNumber | cut -d':' -f2 |  tr -d "'" | xargs`
 GCP_ACCOUNT_NAME=`gcloud config list account --format "value(core.account)" | cut -d'@' -f1 | xargs`
 SESSION_NAME="delta-lake-lab"
-LOCATION=<Your GCP region here>
-NAME=<Your name here>
+NAME=tb
 HISTORY_SERVER_NAME="dll-sphs-${PROJECT_NBR}"
 METASTORE_NAME="dll-hms-${PROJECT_NBR}"
 SUBNET="dll-snet"
 NOTEBOOK_BUCKET="gs://dll-code-bucket-${PROJECT_NBR}-${NAME}"
+LOCATION=<Your GCP region here>
+
 
 
 gcloud beta dataproc sessions create spark $NAME-$SESSION_NAME-$RANDOM  \
