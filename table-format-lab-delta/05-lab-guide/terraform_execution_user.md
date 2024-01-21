@@ -99,10 +99,11 @@ gcloud beta dataproc sessions create spark $NAME-$SESSION_NAME-$RANDOM  \
 --metastore-service="projects/$PROJECT_ID/locations/$LOCATION/services/${METASTORE_NAME}" \
 --property="spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" \
 --property="spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog" \
---service-account="s8s-lab-sa@tgs-internal-gcpgtminit-dev-01.iam.gserviceaccount.com" \
+--service-account="dll-lab-sa@datalake-tuh-01.iam.gserviceaccount.com" \
 --version 2.0.3 \
 --subnet=$SUBNET 
 
+##--service-account="s8s-lab-sa@tgs-internal-gcpgtminit-dev-01.iam.gserviceaccount.com" \
 
 ```
 The author typcially has two sessions handly to expedite switching across notebooks.
